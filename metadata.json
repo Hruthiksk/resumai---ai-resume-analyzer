@@ -1,0 +1,6 @@
+{
+  "name": "ResumAI - AI Resume Analyzer",
+  "description": "AI-powered resume ATS scoring, job match, resume coach, cover letter generator, and interview preparation platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
