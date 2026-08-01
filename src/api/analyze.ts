@@ -25,7 +25,7 @@ ${resumeText.slice(0, 8000)}
 Return a strict structured JSON output evaluating ATS compatibility (0-100 score), keywords present/missing, grammar/formatting issues, skills gap, key strengths, weaknesses, and prioritized improvement suggestions.`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-2.5-flash',
         contents: prompt,
         config: {
           systemInstruction: 'You are an expert ATS (Applicant Tracking System) reviewer and executive career recruiter. Return high precision, realistic, and actionable resume evaluations in JSON.',
