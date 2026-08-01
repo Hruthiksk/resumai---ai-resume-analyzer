@@ -55,6 +55,7 @@ interface AppContextType {
   authLoading: boolean;
   loginAsUser: () => void;
   loginAsAdmin: () => void;
+  loginWithGoogle: () => Promise<void>;
   loginWithSupabase: (email: string, password: string) => Promise<{ success: boolean; role?: 'USER' | 'ADMIN'; error?: string }>;
   signupWithSupabase: (fullName: string, email: string, password: string) => Promise<{ success: boolean; role?: 'USER' | 'ADMIN'; error?: string }>;
   logout: () => Promise<void>;
@@ -282,6 +283,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return { success: false, error: msg };
     }
   };
+  const loginWithGoogle = async () => {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: 'https://resumai-ai-resume-analyzer-five.vercel.app/'
+    }
+  });
+
+  if (error) {
+    showToast(error.message, 'error');
+  }
+};
 
   const signupWithSupabase = async (
     fullName: string,
@@ -290,14 +303,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   ): Promise<{ success: boolean; role?: 'USER' | 'ADMIN'; error?: string }> => {
     try {
       const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-          },
-        },
-      });
+  email,
+  password,
+  options: {
+    emailRedirectTo: "https://resumai-ai-resume-analyzer-five.vercel.app/",
+    data: {
+      full_name: fullName,
+    },
+  },
+});
 
       if (error) {
         let formattedMsg = error.message;
@@ -451,6 +465,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         authLoading,
         loginAsUser,
         loginAsAdmin,
+        loginWithGoogle,
         loginWithSupabase,
         signupWithSupabase,
         logout,
