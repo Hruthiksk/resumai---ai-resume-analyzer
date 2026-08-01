@@ -1,20 +1,31 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# ResumAI – AI Resume Analyzer
 
-# Run and deploy your AI Studio app
+🚀 **Live Demo:** https://resumai-ai-resume-analyzer-production.up.railway.app/
 
-This contains everything you need to run your app locally.
+## Features
+- AI-powered Resume Analysis
+- ATS Score Evaluation
+- AI Chat Coach
+- AI Cover Letter Generator
+- AI Interview Preparation
+- Supabase Database Integration
 
-View your app in AI Studio: https://ai.studio/apps/306d617e-1527-47fb-bb20-f856acf8a658
+## Tech Stack
+- React
+- TypeScript
+- Node.js
+- Express
+- Google Gemini API
+- Supabase
+- Railway
 
-## Run Locally
+## Installation
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev
+```
 
+## Author
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Hruthik SK
